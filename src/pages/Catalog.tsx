@@ -2,10 +2,12 @@ import React, { useState, useMemo } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Filter, SlidersHorizontal, Search, ShoppingBag } from 'lucide-react';
 import { products, categories } from '../data/db';
+import { useCart } from '../context/CartContext';
 
 const Catalog: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
+  const { addToCart } = useCart();
   
   const categoryFilter = searchParams.get('category') || 'Всі';
   const styleFilter = searchParams.get('style') || 'Всі';
@@ -123,7 +125,14 @@ const Catalog: React.FC = () => {
                         {product.style}
                       </div>
                       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                        <button className="p-4 bg-white rounded-full text-deep-slate hover:bg-gold hover:text-white transition-colors duration-300 shadow-lg">
+                        <button 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            addToCart(product);
+                          }}
+                          className="p-4 bg-white rounded-full text-deep-slate hover:bg-gold hover:text-white transition-colors duration-300 shadow-lg"
+                        >
                           <ShoppingBag size={20} />
                         </button>
                       </div>

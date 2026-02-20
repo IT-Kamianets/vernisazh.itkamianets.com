@@ -30,7 +30,7 @@ const Home: React.FC = () => {
             alt="Розкішний інтер'єр"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
         </div>
 
         <motion.div
@@ -116,9 +116,9 @@ const Home: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={itemVariants} className="text-center mb-20 max-w-3xl mx-auto">
-            <h2 className="text-gold uppercase tracking-[0.3em] font-semibold text-sm mb-6">Наша Експертиза</h2>
+            <h2 className="text-white/80 uppercase tracking-[0.3em] font-semibold text-sm mb-6">Наша Експертиза</h2>
             <h3 className="text-4xl md:text-5xl font-playfair font-bold mb-8 leading-tight">Створюємо Досконалість з 1998 року</h3>
-            <p className="text-gray-400 font-light leading-relaxed tracking-wide">
+            <p className="text-white/70 font-light leading-relaxed tracking-wide">
               Ми віримо, що меблі — це більше, ніж просто предмети в кімнаті. Це вираження вашої особистості, свідок моментів вашого життя та спадщина для поколінь.
             </p>
           </motion.div>
@@ -128,18 +128,18 @@ const Home: React.FC = () => {
             variants={containerVariants}
           >
             {[
-              { icon: <Star className="mx-auto text-gold mb-6" size={40} />, title: "Преміальна Якість", desc: "Використовуємо найкращі матеріали з усього світу." },
-              { icon: <PenTool className="mx-auto text-gold mb-6" size={40} />, title: "Індивідуальний Дизайн", desc: "Вироби на замовлення, адаптовані до вашого бачення." },
-              { icon: <ShieldCheck className="mx-auto text-gold mb-6" size={40} />, title: "Довічна Гарантія", desc: "Впевненість у майстерності, що триває все життя." },
-              { icon: <Clock className="mx-auto text-gold mb-6" size={40} />, title: "Швидка Доставка", desc: "Преміальний сервіс прямо до ваших дверей." }
+              { icon: <Star className="mx-auto text-white mb-6" size={40} />, title: "Преміальна Якість", desc: "Використовуємо найкращі матеріали з усього світу." },
+              { icon: <PenTool className="mx-auto text-white mb-6" size={40} />, title: "Індивідуальний Дизайн", desc: "Вироби на замовлення, адаптовані до вашого бачення." },
+              { icon: <ShieldCheck className="mx-auto text-white mb-6" size={40} />, title: "Довічна Гарантія", desc: "Впевненість у майстерності, що триває все життя." },
+              { icon: <Clock className="mx-auto text-white mb-6" size={40} />, title: "Швидка Доставка", desc: "Преміальний сервіс прямо до ваших дверей." }
             ].map((feature, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
               >
-                {feature.icon}
+                <div className="text-gold">{feature.icon}</div>
                 <h4 className="text-xl font-bold uppercase tracking-widest mb-4 font-playfair text-white">{feature.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
+                <p className="text-white/70 text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </motion.div>

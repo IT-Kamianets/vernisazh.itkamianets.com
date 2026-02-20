@@ -2,9 +2,11 @@ import React, { useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShoppingBag, Heart, Share2, CheckCircle2, Package, Truck, ShieldCheck, ArrowRight } from 'lucide-react';
 import { products } from '../data/db';
+import { useCart } from '../context/CartContext';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { addToCart } = useCart();
 
   const product = useMemo(() => {
     return products.find((p) => p.id === id);
@@ -79,7 +81,10 @@ const ProductDetail: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100">
-              <button className="flex-grow flex items-center justify-center space-x-3 px-10 py-5 bg-deep-slate text-ivory text-sm font-bold uppercase tracking-[0.2em] hover:bg-gold transition-all duration-500 shadow-xl group">
+              <button 
+                onClick={() => addToCart(product)}
+                className="flex-grow flex items-center justify-center space-x-3 px-10 py-5 bg-deep-slate text-ivory text-sm font-bold uppercase tracking-[0.2em] hover:bg-gold transition-all duration-500 shadow-xl group"
+              >
                 <ShoppingBag size={20} className="group-hover:-translate-y-1 transition-transform" />
                 <span>Додати в кошик</span>
               </button>

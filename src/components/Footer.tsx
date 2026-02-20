@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           <h2 className="text-3xl font-playfair font-bold text-gold tracking-widest uppercase">
             ВЕРНІСАЖ
           </h2>
-          <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+          <p className="text-ivory/80 text-sm leading-relaxed max-w-xs">
             Відчуйте мистецтво життя з нашою курованою колекцією розкішних меблів. Виготовлені вручну до досконалості, створені для позачасової елегантності.
           </p>
           <div className="flex space-x-6">
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           <h3 className="text-lg font-semibold uppercase tracking-widest text-gold font-playfair">
             Швидкі посилання
           </h3>
-          <ul className="space-y-4 text-sm text-gray-400">
+          <ul className="space-y-4 text-sm text-ivory/80">
             <li>
               <Link to="/" className="hover:text-gold transition-colors duration-300">Головна</Link>
             </li>
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
           <h3 className="text-lg font-semibold uppercase tracking-widest text-gold font-playfair">
             Категорії
           </h3>
-          <ul className="space-y-4 text-sm text-gray-400">
+          <ul className="space-y-4 text-sm text-ivory/80">
             <li>
               <Link to="/catalog?category=Вітальня" className="hover:text-gold transition-colors duration-300">Вітальня</Link>
             </li>
@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
           <h3 className="text-lg font-semibold uppercase tracking-widest text-gold font-playfair">
             Контакти
           </h3>
-          <ul className="space-y-4 text-sm text-gray-400">
+          <ul className="space-y-4 text-sm text-ivory/80">
             <li className="flex items-center space-x-3">
               <MapPin size={18} className="text-gold" />
               <span>Троїцька площа, 1, Кам'янець-Подільський</span>
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto border-t border-gray-700 mt-16 pt-8 text-center text-xs text-gray-500 uppercase tracking-[0.2em]">
+      <div className="max-w-7xl mx-auto border-t border-white/10 mt-16 pt-8 text-center text-xs text-ivory/60 uppercase tracking-[0.2em]">
         &copy; {new Date().getFullYear()} Меблевий салон "Вернісаж". Всі права захищені.
       </div>
     </footer>

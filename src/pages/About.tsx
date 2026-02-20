@@ -29,7 +29,7 @@ const About: React.FC = () => {
             alt="Майстерність"
             className="w-full h-full object-cover grayscale-[40%]"
           />
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
         </div>
 
         <motion.div
@@ -96,26 +96,26 @@ const About: React.FC = () => {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-12 transform translate-x-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div variants={itemVariants} className="text-center mb-24 max-w-3xl mx-auto">
-            <h2 className="text-gold uppercase tracking-[0.3em] font-semibold text-sm mb-6">Наша Філософія</h2>
+            <h2 className="text-white/80 uppercase tracking-[0.3em] font-semibold text-sm mb-6">Наша Філософія</h2>
             <h3 className="text-4xl md:text-5xl font-playfair font-bold mb-8 uppercase tracking-widest">Принципи Майстерності</h3>
           </motion.div>
 
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-16" variants={containerVariants}>
             {[
-              { icon: <Star className="text-gold" size={40} />, title: "Ексклюзивність", desc: "Ми пропонуємо лімітовані серії та індивідуальні вироби, які ви не знайдете більше ніде у світі." },
-              { icon: <ShieldCheck className="text-gold" size={40} />, title: "Цілісність", desc: "Чесність у матеріалах та прозорість нашого процесу. Якщо це не ідеально, це не Вернісаж." },
-              { icon: <Compass className="text-gold" size={40} />, title: "Бачення", desc: "Завжди дивлячись у майбутнє на нові тренди, поважаючи позачасові традиції класичного дизайну." }
+              { icon: <Star size={40} />, title: "Ексклюзивність", desc: "Ми пропонуємо лімітовані серії та індивідуальні вироби, які ви не знайдете більше ніде у світі." },
+              { icon: <ShieldCheck size={40} />, title: "Цілісність", desc: "Чесність у матеріалах та прозорість нашого процесу. Якщо це не ідеально, це не Вернісаж." },
+              { icon: <Compass size={40} />, title: "Бачення", desc: "Завжди дивлячись у майбутнє на нові тренди, поважаючи позачасові традиції класичного дизайну." }
             ].map((value, i) => (
               <motion.div
                 key={i}
                 className="space-y-6 text-center md:text-left group"
                 variants={itemVariants}
               >
-                <div className="mx-auto md:mx-0 p-4 border border-gold/20 w-fit group-hover:bg-gold transition-colors duration-500 group-hover:text-deep-slate">
+                <div className="mx-auto md:mx-0 p-4 border border-white/20 w-fit group-hover:bg-gold transition-colors duration-500 group-hover:text-deep-slate text-gold">
                   {value.icon}
                 </div>
-                <h4 className="text-xl font-bold uppercase tracking-widest font-playfair group-hover:text-gold transition-colors duration-300">{value.title}</h4>
-                <p className="text-gray-400 text-sm leading-loose tracking-wide">{value.desc}</p>
+                <h4 className="text-xl font-bold uppercase tracking-widest font-playfair group-hover:text-white transition-colors duration-300">{value.title}</h4>
+                <p className="text-white/70 text-sm leading-loose tracking-wide">{value.desc}</p>
               </motion.div>
             ))}
           </motion.div>

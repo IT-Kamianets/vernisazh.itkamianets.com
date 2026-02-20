@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'ivory': '#FDFCF0',
-        'deep-slate': '#2D2D2D',
-        'gold': '#D4AF37',
+        'ivory': '#ffffff',
+        'deep-slate': '#8c2c2e',
+        'gold': '#C0A062',
       },
       fontFamily: {
         'playfair': ['Playfair Display', 'serif'],
