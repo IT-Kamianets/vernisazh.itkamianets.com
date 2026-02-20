@@ -10,10 +10,6 @@ const ProductDetail: React.FC = () => {
     return products.find((p) => p.id === id);
   }, [id]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
-
   if (!product) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-24 text-center space-y-8">
