@@ -14,7 +14,7 @@ export interface Product {
 
 export const products: Product[] = [
   {
-  id: 'l-02',
+  id: 'l-01',
   name: 'Диван "Soft Cloud" (М’яка Хмара)',
   category: 'Вітальня',
   material: 'Текстиль (Шенілл/Велюр), Сосна',
