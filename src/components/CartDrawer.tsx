@@ -120,12 +120,13 @@ const CartDrawer: React.FC = () => {
                 <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] text-center">
                   Податки та доставка розраховуються при оформленні.
                 </p>
-                <button
-                  className="w-full py-4 bg-deep-slate text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold transition-all duration-500 shadow-xl"
-                  onClick={() => alert('Оформлення замовлення поки що не реалізоване.')}
+                <Link
+                  to="/checkout"
+                  onClick={() => setIsCartOpen(false)}
+                  className="block w-full py-4 bg-deep-slate text-white text-center text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold transition-all duration-500 shadow-xl"
                 >
                   Оформити Замовлення
-                </button>
+                </Link>
                 <Link
                   to="/catalog"
                   onClick={() => setIsCartOpen(false)}

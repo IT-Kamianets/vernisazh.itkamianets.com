@@ -10,6 +10,7 @@ import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetail';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
+import Checkout from './pages/Checkout';
 
 const pageVariants = {
   initial: {
@@ -102,6 +103,20 @@ const AnimatedRoutes: React.FC = () => {
               transition={pageTransition}
             >
               <Contacts />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Checkout />
             </motion.div>
           }
         />
