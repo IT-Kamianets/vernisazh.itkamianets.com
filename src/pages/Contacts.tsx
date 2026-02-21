@@ -24,8 +24,8 @@ const Contacts: React.FC = () => {
                 <div className="space-y-2">
                   <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-deep-slate">Розташування Шоуруму</h3>
                   <p className="text-gray-500 uppercase tracking-widest text-xs leading-loose">
-                    Троїцька площа, 1, <br />
-                    Кам'янець-Подільський, Україна, 32301
+                    вул. Лесі Українки, 40-42, <br />
+                    м. Кам‘янець-Подільський, Україна
                   </p>
                 </div>
               </div>
@@ -37,8 +37,9 @@ const Contacts: React.FC = () => {
                 <div className="space-y-2">
                   <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-deep-slate">Телефонна Підтримка</h3>
                   <p className="text-gray-500 uppercase tracking-widest text-xs leading-loose">
-                    Головний офіс: +380 98 123 4567 <br />
-                    Відділ продажу: +380 97 765 4321
+                    +380 (68) 075 25 75 <br />
+                    +380 (96) 462 03 56 <br />
+                    +380 (99) 181 65 36
                   </p>
                 </div>
               </div>
@@ -76,14 +77,11 @@ const Contacts: React.FC = () => {
             </div>
 
             <div className="flex space-x-6 pt-4">
-              <a href="#" className="p-3 bg-white text-deep-slate hover:bg-gold hover:text-white transition-all duration-300 shadow-md">
+              <a href="https://www.instagram.com/salon_mebli_/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white text-deep-slate hover:bg-gold hover:text-white transition-all duration-300 shadow-md">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="p-3 bg-white text-deep-slate hover:bg-gold hover:text-white transition-all duration-300 shadow-md">
+              <a href="https://www.facebook.com/profile.php?id=100070359290567" target="_blank" rel="noopener noreferrer" className="p-3 bg-white text-deep-slate hover:bg-gold hover:text-white transition-all duration-300 shadow-md">
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="p-3 bg-white text-deep-slate hover:bg-gold hover:text-white transition-all duration-300 shadow-md">
-                <Twitter size={20} />
               </a>
             </div>
           </div>

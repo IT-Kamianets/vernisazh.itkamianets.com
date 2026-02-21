@@ -14,14 +14,11 @@ const Footer: React.FC = () => {
             Відчуйте мистецтво життя з нашою курованою колекцією розкішних меблів. Виготовлені вручну до досконалості, створені для позачасової елегантності.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-gold transition-colors duration-300">
+            <a href="https://www.facebook.com/profile.php?id=100070359290567" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
               <Facebook size={24} />
             </a>
-            <a href="#" className="hover:text-gold transition-colors duration-300">
+            <a href="https://www.instagram.com/salon_mebli_/" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
               <Instagram size={24} />
-            </a>
-            <a href="#" className="hover:text-gold transition-colors duration-300">
-              <Twitter size={24} />
             </a>
           </div>
         </div>
@@ -73,11 +70,15 @@ const Footer: React.FC = () => {
           <ul className="space-y-4 text-sm text-ivory/80">
             <li className="flex items-center space-x-3">
               <MapPin size={18} className="text-gold" />
-              <span>Троїцька площа, 1, Кам'янець-Подільський</span>
+              <span>вул. Лесі Українки, 40-42, м. Кам‘янець-Подільський</span>
             </li>
-            <li className="flex items-center space-x-3">
-              <Phone size={18} className="text-gold" />
-              <span>+380 98 123 4567</span>
+            <li className="flex items-start space-x-3">
+              <Phone size={18} className="text-gold mt-1" />
+              <div className="flex flex-col space-y-1">
+                <span>+380 (68) 075 25 75</span>
+                <span>+380 (96) 462 03 56</span>
+                <span>+380 (99) 181 65 36</span>
+              </div>
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={18} className="text-gold" />
