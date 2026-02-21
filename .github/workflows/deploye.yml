@@ -30,6 +30,9 @@ jobs:
             - name: Create .nojekyll file
               run: touch dist/.nojekyll
 
+            - name: Create 404.html from index.html
+              run: cp dist/index.html dist/404.html
+
             - name: Set up SSH
               env:
                   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
