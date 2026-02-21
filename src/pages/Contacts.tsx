@@ -134,23 +134,6 @@ const Contacts: React.FC = () => {
         </div>
       </div>
 
-      {/* Map Placeholder */}
-      <section className="h-[500px] w-full bg-gray-200 mt-12 grayscale overflow-hidden relative group">
-        <div className="absolute inset-0 bg-deep-slate/10 group-hover:bg-transparent transition-colors duration-1000"></div>
-        <img 
-          src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=2000" 
-          alt="Вигляд на карті" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
-          <div className="p-6 bg-white shadow-2xl mb-4 relative z-10">
-            <MapPin size={32} className="text-gold animate-bounce" />
-          </div>
-          <p className="bg-deep-slate text-ivory px-6 py-2 text-xs font-bold uppercase tracking-[0.3em] shadow-lg">
-            Завітайте до нашого Шоуруму
-          </p>
-        </div>
-      </section>
     </div>
   );
 };

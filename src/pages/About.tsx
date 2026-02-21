@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, ShieldCheck, Award, Heart, Users, Compass } from 'lucide-react';
+import { Star, ShieldCheck, Compass } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
@@ -42,7 +42,7 @@ const About: React.FC = () => {
             Наша <span className="text-gold italic underline decoration-1 underline-offset-8">Спадщина</span>
           </h1>
           <p className="text-lg md:text-xl font-lato max-w-2xl mx-auto text-gray-200 tracking-[0.2em] font-light uppercase leading-relaxed">
-            Визначаємо досконалість у дизайні меблів з 1998 року.
+            Визначаємо досконалість у дизайні та створенні ексклюзивних меблів.
           </p>
         </motion.div>
       </section>
@@ -76,9 +76,9 @@ const About: React.FC = () => {
           <motion.div variants={itemVariants} className="relative order-1 lg:order-2">
             <div className="absolute -top-10 -left-10 w-40 h-40 border-8 border-gold/10 hidden md:block"></div>
             <img 
-              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200" 
-              alt="Майстер за роботою" 
-              className="w-full h-full object-cover shadow-2xl grayscale-[20%] transition-all duration-700"
+              src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&q=80&w=1200" 
+              alt="Салон меблів Вернісаж" 
+              className="w-full h-full object-cover shadow-2xl transition-all duration-700"
             />
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-gold/10 -z-10 hidden md:block"></div>
           </motion.div>
@@ -119,30 +119,6 @@ const About: React.FC = () => {
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Stats Section */}
-      <motion.section
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-          {[
-            { icon: <Users className="mx-auto text-gold mb-4" />, value: "25+", label: "Майстрів-червонодеревників" },
-            { icon: <Award className="mx-auto text-gold mb-4" />, value: "15", label: "Нагород за дизайн" },
-            { icon: <Heart className="mx-auto text-gold mb-4" />, value: "5000+", label: "Щасливих клієнтів" },
-            { icon: <Compass className="mx-auto text-gold mb-4" />, value: "25", label: "Років досвіду" }
-          ].map((stat, i) => (
-            <motion.div key={i} className="space-y-2" variants={itemVariants}>
-              <div className="text-gold flex justify-center">{stat.icon}</div>
-              <h5 className="text-4xl font-playfair font-bold text-deep-slate tracking-tighter">{stat.value}</h5>
-              <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-gray-400">{stat.label}</p>
-            </motion.div>
-          ))}
         </div>
       </motion.section>
 

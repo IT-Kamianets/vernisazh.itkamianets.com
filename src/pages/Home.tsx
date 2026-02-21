@@ -85,22 +85,26 @@ const Home: React.FC = () => {
           {categories.map((cat, idx) => (
             <motion.div
               key={cat.name}
-              className="relative group overflow-hidden h-[500px] cursor-pointer"
               variants={itemVariants}
             >
-              <img
-                src={`https://images.unsplash.com/photo-${idx % 2 === 0 ? '1556228453-efd6c1ff04f6' : '1493663284031-b7e3aefcae8e'}?auto=format&fit=crop&q=80&w=800`}
-                alt={cat.name}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-deep-slate/80 via-transparent to-transparent flex flex-col justify-end p-8">
-                <h4 className="text-2xl font-playfair font-bold text-white mb-2 uppercase tracking-widest group-hover:text-gold transition-colors duration-300">
-                  {cat.name}
-                </h4>
-                <Link to={`/catalog?category=${cat.name}`} className="text-gold text-sm font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 inline-flex items-center">
-                  Купити Зараз <ArrowRight size={14} className="ml-2" />
-                </Link>
-              </div>
+              <Link 
+                to={`/catalog?category=${cat.name}`}
+                className="relative group overflow-hidden h-[500px] cursor-pointer block"
+              >
+                <img
+                  src={`https://images.unsplash.com/photo-${idx % 2 === 0 ? '1556228453-efd6c1ff04f6' : '1493663284031-b7e3aefcae8e'}?auto=format&fit=crop&q=80&w=800`}
+                  alt={cat.name}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep-slate/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                  <h4 className="text-2xl font-playfair font-bold text-white mb-2 uppercase tracking-widest group-hover:text-gold transition-colors duration-300">
+                    {cat.name}
+                  </h4>
+                  <span className="text-gold text-sm font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 inline-flex items-center">
+                    Купити Зараз <ArrowRight size={14} className="ml-2" />
+                  </span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -117,7 +121,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={itemVariants} className="text-center mb-20 max-w-3xl mx-auto">
             <h2 className="text-white/80 uppercase tracking-[0.3em] font-semibold text-sm mb-6">Наша Експертиза</h2>
-            <h3 className="text-4xl md:text-5xl font-playfair font-bold mb-8 leading-tight">Створюємо Досконалість з 1998 року</h3>
+            <h3 className="text-4xl md:text-5xl font-playfair font-bold mb-8 leading-tight">Створюємо Досконалість та Затишок</h3>
             <p className="text-white/70 font-light leading-relaxed tracking-wide">
               Ми віримо, що меблі — це більше, ніж просто предмети в кімнаті. Це вираження вашої особистості, свідок моментів вашого життя та спадщина для поколінь.
             </p>
