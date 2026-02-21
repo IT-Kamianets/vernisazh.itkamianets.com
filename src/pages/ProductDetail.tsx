@@ -1,12 +1,14 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShoppingBag, Heart, Share2, CheckCircle2, Package, Truck, ShieldCheck, ArrowRight } from 'lucide-react';
 import { products } from '../data/db';
 import { useCart } from '../context/CartContext';
+import { useFavorites } from '../context/FavoritesContext';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { addToCart } = useCart();
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const product = useMemo(() => {
     return products.find((p) => p.id === id);
@@ -88,8 +90,11 @@ const ProductDetail: React.FC = () => {
                 <ShoppingBag size={20} className="group-hover:-translate-y-1 transition-transform" />
                 <span>Додати в кошик</span>
               </button>
-              <button className="p-5 border border-gray-200 text-deep-slate hover:border-gold hover:text-gold transition-colors duration-300">
-                <Heart size={20} />
+              <button 
+                onClick={() => toggleFavorite(product)}
+                className={`p-5 border transition-all duration-300 ${isFavorite(product.id) ? 'bg-gold border-gold text-white' : 'border-gray-200 text-deep-slate hover:border-gold hover:text-gold'}`}
+              >
+                <Heart size={20} className={isFavorite(product.id) ? "fill-white" : ""} />
               </button>
               <button className="p-5 border border-gray-200 text-deep-slate hover:border-gold hover:text-gold transition-colors duration-300">
                 <Share2 size={20} />

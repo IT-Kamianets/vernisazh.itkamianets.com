@@ -1,13 +1,15 @@
 import React, { useState, useMemo } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { Filter, SlidersHorizontal, Search, ShoppingBag } from 'lucide-react';
+import { Filter, SlidersHorizontal, Search, ShoppingBag, Heart } from 'lucide-react';
 import { products, categories } from '../data/db';
 import { useCart } from '../context/CartContext';
+import { useFavorites } from '../context/FavoritesContext';
 
 const Catalog: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const { addToCart } = useCart();
+  const { toggleFavorite, isFavorite } = useFavorites();
   
   const categoryFilter = searchParams.get('category') || 'Всі';
   const styleFilter = searchParams.get('style') || 'Всі';
@@ -114,34 +116,43 @@ const Catalog: React.FC = () => {
                   key={product.id}
                   className="group"
                 >
-                  <Link to={`/catalog/${product.id}`}>
-                    <div className="relative aspect-[4/5] overflow-hidden bg-white mb-6">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-white mb-6">
+                    <Link to={`/catalog/${product.id}`}>
                       <img
                         src={product.images[0]}
                         alt={product.name}
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                       />
-                      <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[10px] uppercase font-bold tracking-widest text-deep-slate">
-                        {product.style}
-                      </div>
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                        <button 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            addToCart(product);
-                          }}
-                          className="p-4 bg-white rounded-full text-deep-slate hover:bg-gold hover:text-white transition-colors duration-300 shadow-lg"
-                        >
-                          <ShoppingBag size={20} />
-                        </button>
-                      </div>
+                    </Link>
+                    <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[10px] uppercase font-bold tracking-widest text-deep-slate">
+                      {product.style}
                     </div>
-                    <div className="space-y-2">
-                      <p className="text-xs text-gold uppercase tracking-[0.2em] font-semibold">{product.category}</p>
-                      <h4 className="text-xl font-playfair font-bold text-deep-slate group-hover:text-gold transition-colors duration-300">{product.name}</h4>
-                      <p className="text-lg font-bold text-deep-slate tracking-tighter">{product.price.toLocaleString()} грн.</p>
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toggleFavorite(product);
+                      }}
+                      className={`absolute top-4 right-4 p-3 rounded-full shadow-lg transition-all duration-300 ${isFavorite(product.id) ? 'bg-gold text-white' : 'bg-white text-deep-slate hover:bg-gold hover:text-white'}`}
+                    >
+                      <Heart size={18} className={isFavorite(product.id) ? "fill-white" : ""} />
+                    </button>
+                    <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-deep-slate/80 to-transparent flex items-center justify-center space-x-4">
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          addToCart(product);
+                        }}
+                        className="px-6 py-3 bg-white text-deep-slate hover:bg-gold hover:text-white transition-colors duration-300 shadow-xl text-[10px] font-bold uppercase tracking-widest flex items-center space-x-2"
+                      >
+                        <ShoppingBag size={16} />
+                        <span>Додати у кошик</span>
+                      </button>
                     </div>
+                  </div>
+                  <Link to={`/catalog/${product.id}`} className="space-y-2">
+                    <p className="text-xs text-gold uppercase tracking-[0.2em] font-semibold">{product.category}</p>
+                    <h4 className="text-xl font-playfair font-bold text-deep-slate group-hover:text-gold transition-colors duration-300">{product.name}</h4>
+                    <p className="text-lg font-bold text-deep-slate tracking-tighter">{product.price.toLocaleString()} грн.</p>
                   </Link>
                 </div>
               ))}

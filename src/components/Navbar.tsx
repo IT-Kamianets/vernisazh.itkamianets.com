@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Search, ShoppingBag, Menu, X } from 'lucide-react';
+import { Search, ShoppingBag, Menu, X, Heart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useFavorites } from '../context/FavoritesContext';
 import SearchOverlay from './SearchOverlay';
+import FavoritesDrawer from './FavoritesDrawer';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { totalItems, setIsCartOpen } = useCart();
+  const { totalFavorites, setIsFavoritesOpen } = useFavorites();
 
   const navLinks = [
     { name: 'Головна', path: '/' },
@@ -51,6 +54,17 @@ const Navbar: React.FC = () => {
               >
                 <Search size={20} />
               </button>
+              <button 
+                onClick={() => setIsFavoritesOpen(true)}
+                className="p-2 hover:text-gold transition-colors relative"
+              >
+                <Heart size={20} className={totalFavorites > 0 ? "fill-gold text-gold" : ""} />
+                {totalFavorites > 0 && (
+                  <span className="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                    {totalFavorites}
+                  </span>
+                )}
+              </button>
               <button
                 onClick={() => setIsCartOpen(true)}
                 className="p-2 hover:text-gold transition-colors relative"
@@ -92,6 +106,14 @@ const Navbar: React.FC = () => {
                 <button onClick={() => { setIsOpen(false); setIsSearchOpen(true); }} className="hover:text-gold">
                   <Search size={24} />
                 </button>
+                <button onClick={() => { setIsOpen(false); setIsFavoritesOpen(true); }} className="hover:text-gold relative">
+                  <Heart size={24} className={totalFavorites > 0 ? "fill-gold text-gold" : ""} />
+                  {totalFavorites > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-gold text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                      {totalFavorites}
+                    </span>
+                  )}
+                </button>
                 <button onClick={() => { setIsOpen(false); setIsCartOpen(true); }} className="hover:text-gold relative">
                   <ShoppingBag size={24} />
                   {totalItems > 0 && (
@@ -107,6 +129,7 @@ const Navbar: React.FC = () => {
       </nav>
 
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <FavoritesDrawer />
     </>
   );
 };

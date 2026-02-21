@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CartProvider } from './context/CartContext';
+import { FavoritesProvider } from './context/FavoritesContext';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
@@ -112,14 +113,16 @@ const AnimatedRoutes: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <CartProvider>
-      <Router>
-        <ScrollToTop />
-        <Layout>
-          <AnimatedRoutes />
-        </Layout>
-      </Router>
-    </CartProvider>
+    <FavoritesProvider>
+      <CartProvider>
+        <Router>
+          <ScrollToTop />
+          <Layout>
+            <AnimatedRoutes />
+          </Layout>
+        </Router>
+      </CartProvider>
+    </FavoritesProvider>
   );
 };
 
