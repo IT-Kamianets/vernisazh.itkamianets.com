@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
+import { products } from '../data/db';
 
 const Breadcrumbs: React.FC = () => {
   const location = useLocation();
@@ -8,13 +9,19 @@ const Breadcrumbs: React.FC = () => {
 
   if (pathnames.length === 0) return null;
 
-  const translatePath = (path: string) => {
+  const translatePath = (path: string, index: number) => {
+    // Check if we are at a product ID in the path /catalog/:id
+    if (index === 1 && pathnames[0] === 'catalog') {
+      const product = products.find(p => p.id === path);
+      if (product) return product.name;
+    }
+
     const translations: { [key: string]: string } = {
       'catalog': 'Каталог',
       'about': 'Про нас',
       'contacts': 'Контакти'
     };
-    return translations[path] || path;
+    return translations[path] || path.replace(/-/g, ' ');
   };
 
   return (
@@ -36,11 +43,11 @@ const Breadcrumbs: React.FC = () => {
                 <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
                 {last ? (
                   <span className="text-gold font-semibold" aria-current="page">
-                    {translatePath(value.replace(/-/g, ' '))}
+                    {translatePath(value, index)}
                   </span>
                 ) : (
                   <Link to={to} className="hover:text-gold transition-colors duration-300">
-                    {translatePath(value.replace(/-/g, ' '))}
+                    {translatePath(value, index)}
                   </Link>
                 )}
               </div>
