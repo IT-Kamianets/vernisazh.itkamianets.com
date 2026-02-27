@@ -40,15 +40,15 @@ const Home: React.FC = () => {
           className="relative z-10 text-center text-ivory px-4 max-w-4xl mx-auto"
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold mb-8 tracking-wider uppercase leading-tight">
-            Мистецтво <span className="text-gold italic">Життя</span>
+            Мистецтво <span className="text-gold italic">та Життя</span>
           </h1>
-          <p className="text-lg md:text-xl font-lato max-w-2xl mx-auto mb-10 text-gray-200 tracking-[0.15em] font-light leading-relaxed uppercase">
+          <p className="text-lg md:text-xl font-playfair max-w-2xl mx-auto mb-10 text-gray-200 tracking-[0.15em] font-light leading-relaxed uppercase">
             Вишукана колекція меблів, створена вручну для вашого ідеального дому.
           </p>
           <div>
             <Link
               to="/catalog"
-              className="inline-flex items-center px-10 py-5 bg-gold text-deep-slate font-bold tracking-widest uppercase text-sm hover:bg-white transition-all duration-500 transform hover:scale-105 shadow-xl group"
+              className="inline-flex items-center px-10 py-5 bg-gold text-white font-playfair font-bold tracking-[0.2em] uppercase text-sm hover:tracking-[0.3em] transition-all duration-500 transform hover:scale-105 shadow-[0_10px_30px_rgba(192,160,98,0.3)] hover:shadow-[0_15px_40px_rgba(192,160,98,0.6)] group"
             >
               Відкрити Колекцію
               <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform duration-300" size={20} />
@@ -92,7 +92,7 @@ const Home: React.FC = () => {
                 className="relative group overflow-hidden h-[500px] cursor-pointer block"
               >
                 <img
-                  src={`https://images.unsplash.com/photo-${idx % 2 === 0 ? '1556228453-efd6c1ff04f6' : '1493663284031-b7e3aefcae8e'}?auto=format&fit=crop&q=80&w=800`}
+                  src={cat.image}
                   alt={cat.name}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
                 />

@@ -114,8 +114,8 @@ export const products: Product[] = [
 ];
 
 export const categories = [
-  { name: 'Вітальня', icon: 'Sofa' },
-  { name: 'Спальня', icon: 'Bed' },
-  { name: 'Їдальня', icon: 'Utensils' },
-  { name: 'Кабінет', icon: 'Briefcase' }
+  { name: 'Вітальня', icon: 'Sofa', image: '/images/categories/vitalnya.jpg' },
+  { name: 'Спальня', icon: 'Bed', image: '/images/categories/spalnya.jpg' },
+  { name: 'Їдальня', icon: 'Utensils', image: '/images/categories/idalnya.jpg' },
+  { name: 'Кабінет', icon: 'Briefcase', image: '/images/categories/cabinet.jpg' }
 ];
